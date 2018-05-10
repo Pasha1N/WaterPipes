@@ -22,6 +22,11 @@ namespace WaterPipes.GamE
         public void Establish()
         {
             ConsoleKeyInfo key;
+            Console.SetCursorPosition(width, height);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine('X');
+            Console.ResetColor();
             while (true)
             {
                 Pipes = objectOfPipes.GetPipes();
@@ -173,7 +178,7 @@ namespace WaterPipes.GamE
 
                     if (!Is)
                     {
-                        for (int i = 0; i < Sources.Length; i++)//
+                        for (int i = 0; i < Sources.Length; i++)
                         {
                             if (Sources[i] != null)
                             {
@@ -192,6 +197,11 @@ namespace WaterPipes.GamE
 
                         Trumpet trumpet = new Trumpet(width, height);
                         objectOfPipes.AddTrumpet(trumpet);
+
+                        Console.SetCursorPosition(width, height);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine('X');
+                        Console.ResetColor();
                     }
                     else
                     {
@@ -223,6 +233,7 @@ namespace WaterPipes.GamE
                                 }
                             }
                         }
+                        Console.SetCursorPosition(width, height);
 
                         if (!Is)
                         {
@@ -245,7 +256,10 @@ namespace WaterPipes.GamE
                             }
                             WaterSource waterSource = new WaterSource(width, height);
                             objectOfSources.AddSource(waterSource);
-                            waterSource.Print();
+
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine('X');
+                            Console.ResetColor();
                         }
                         else
                         {
