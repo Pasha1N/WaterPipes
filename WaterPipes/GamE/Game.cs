@@ -42,14 +42,12 @@ namespace WaterPipes.GamE
                             {
                                 if (pipes[p].GetHeight() == height + j && pipes[p].GetWidth() == width)
                                 {
-                                    Thread.Sleep(speed);
                                     pipes[p].Fill();
                                     pipes[p].Print();
                                 }
 
                                 if (pipes[p].GetWidth() == width + j && pipes[p].GetHeight() == height)
                                 {
-                                    Thread.Sleep(speed);
                                     pipes[p].Fill();
                                     pipes[p].Print();
                                 }
@@ -58,6 +56,7 @@ namespace WaterPipes.GamE
                     }
                 }
             }
+            Thread.Sleep(speed);
 
             bool work = true;
             while (work)
@@ -103,6 +102,7 @@ namespace WaterPipes.GamE
 
                 if (objectTemporaryArray.GetSize() > 0)
                 {
+
                     Trumpet[] temporeryArray = objectTemporaryArray.GetPipes();
 
                     for (int i = 0; i < temporeryArray.Length; i++)
@@ -115,7 +115,6 @@ namespace WaterPipes.GamE
                                 {
                                     if (temporeryArray[i].GetWidth() == pipes[j].GetWidth() && temporeryArray[i].GetHeight() == pipes[j].GetHeight())
                                     {
-                                        Thread.Sleep(speed);
                                         pipes[j].Fill();
                                         pipes[j].Print();
                                     }
@@ -129,6 +128,8 @@ namespace WaterPipes.GamE
                     work = false;
                 }
                 objectTemporaryArray = null;
+                Thread.Sleep(speed);
+
             }
         }
     }
