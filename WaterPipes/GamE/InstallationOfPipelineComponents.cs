@@ -2,7 +2,7 @@
 
 namespace WaterPipes.GamE
 {
-    class InstallationOfPipelineComponents
+    internal class InstallationOfPipelineComponents
     {
         private int height = 1;
         private int width = 1;

@@ -2,7 +2,7 @@
 
 namespace WaterPipes.GamE
 {
-    class ArrayOfSources
+    internal class ArrayOfSources
     {
         private int sizeArray = 10;
         private int index = -1;

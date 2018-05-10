@@ -2,7 +2,7 @@
 
 namespace WaterPipes.GamE
 {
-    class Game
+    internal class Game
     {
         private ArrayOfPipes objectOfPipes = new ArrayOfPipes();
         private ArrayOfSources objectOfSources = new ArrayOfSources();

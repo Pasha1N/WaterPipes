@@ -2,7 +2,7 @@
 
 namespace WaterPipes.GamE
 {
-    class WaterSource: ElementsOfThePipeline
+    internal class WaterSource : ElementsOfThePipeline
     {
         private char waterSource = 'S';
 

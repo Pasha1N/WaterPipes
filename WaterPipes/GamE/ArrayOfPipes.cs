@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace WaterPipes.GamE 
+namespace WaterPipes.GamE
 {
-    class ArrayOfPipes
+    internal class ArrayOfPipes
     {
         private int sizeArray = 10;
         private int index = -1;
