@@ -42,11 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GamE\ArrayOfWaterSources.cs" />
     <Compile Include="GamE\ElementsOfThePipeline.cs" />
     <Compile Include="GamE\Game.cs" />
     <Compile Include="GamE\Field.cs" />
-    <Compile Include="GamE\ArrayOfPipes.cs" />
     <Compile Include="GamE\InstallationOfPipelineComponents.cs" />
     <Compile Include="GamE\WaterSource.cs" />
     <Compile Include="Program.cs" />

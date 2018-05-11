@@ -1,33 +1,30 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 
 namespace WaterPipes.GamE
 {
     internal class Game
     {
-        private ArrayOfPipes objectOfPipes = new ArrayOfPipes();
-        private ArrayOfSources objectOfSources = new ArrayOfSources();
-        private Trumpet[] pipes = null;
-        private WaterSource[] sources = null;
+        private List<Trumpet> pipes = new List<Trumpet>();
+        private List<WaterSource> sources = new List<WaterSource>();
 
         public Game()
         {
             Field field = new Field();
             field.Show();
 
-            InstallationOfPipelineComponents installationOfElements = new InstallationOfPipelineComponents(field, objectOfPipes, objectOfSources);
+            InstallationOfPipelineComponents installationOfElements = new InstallationOfPipelineComponents(field, pipes, sources);
+
             installationOfElements.Establish();
             OpenSources();
         }
         public void OpenSources()
         {
-            pipes = objectOfPipes.GetPipes();
-            sources = objectOfSources.GetSources();
-
             int height = 0;
             int width = 0;
             int speed = 400;
 
-            for (int i = 0; i < sources.Length; i++)
+            for (int i = 0; i < sources.Count; i++)
             {
                 if (sources[i] != null)
                 {
@@ -36,7 +33,7 @@ namespace WaterPipes.GamE
 
                     for (int j = -1; j < 2; j += 2)
                     {
-                        for (int p = 0; p < pipes.Length; p++)
+                        for (int p = 0; p < pipes.Count; p++)
                         {
                             if (pipes[p] != null)
                             {
@@ -61,9 +58,9 @@ namespace WaterPipes.GamE
             bool work = true;
             while (work)
             {
-                ArrayOfPipes objectTemporaryArray = new ArrayOfPipes();
+                List<Trumpet> temporaryArray = new List<Trumpet>();
 
-                for (int l = 0; l < pipes.Length; l++)
+                for (int l = 0; l < pipes.Count; l++)
                 {
                     if (pipes[l] != null)
                     {
@@ -74,15 +71,15 @@ namespace WaterPipes.GamE
 
                             for (int j = -1; j < 2; j += 2)
                             {
-                                for (int p = 0; p < pipes.Length; p++)
+                                for (int p = 0; p < pipes.Count; p++)
                                 {
                                     if (pipes[p] != null)
                                     {
-                                        if (pipes[p].Height == height + j && pipes[p].Width== width)
+                                        if (pipes[p].Height == height + j && pipes[p].Width == width)
                                         {
                                             if (pipes[p].IsEmpty)
                                             {
-                                                objectTemporaryArray.AddTrumpet(pipes[p]);
+                                                temporaryArray.Add(pipes[p]);
                                             }
                                         }
 
@@ -90,7 +87,7 @@ namespace WaterPipes.GamE
                                         {
                                             if (pipes[p].IsEmpty)
                                             {
-                                                objectTemporaryArray.AddTrumpet(pipes[p]);
+                                                temporaryArray.Add(pipes[p]);
                                             }
                                         }
                                     }
@@ -100,20 +97,17 @@ namespace WaterPipes.GamE
                     }
                 }
 
-                if (objectTemporaryArray.GetSize() > 0)
+                if (temporaryArray.Count > 0)
                 {
-
-                    Trumpet[] temporeryArray = objectTemporaryArray.GetPipes();
-
-                    for (int i = 0; i < temporeryArray.Length; i++)
+                    for (int i = 0; i < temporaryArray.Count; i++)
                     {
-                        if (temporeryArray[i] != null)
+                        if (temporaryArray[i] != null)
                         {
-                            for (int j = 0; j < pipes.Length; j++)
+                            for (int j = 0; j < pipes.Count; j++)
                             {
                                 if (pipes[j] != null)
                                 {
-                                    if (temporeryArray[i].Width == pipes[j].Width && temporeryArray[i].Height == pipes[j].Height)
+                                    if (temporaryArray[i].Width == pipes[j].Width && temporaryArray[i].Height == pipes[j].Height)
                                     {
                                         pipes[j].Fill();
                                         pipes[j].Print();
@@ -127,9 +121,9 @@ namespace WaterPipes.GamE
                 {
                     work = false;
                 }
-                objectTemporaryArray = null;
-                Thread.Sleep(speed);
 
+                temporaryArray = null;
+                Thread.Sleep(speed);
             }
         }
     }

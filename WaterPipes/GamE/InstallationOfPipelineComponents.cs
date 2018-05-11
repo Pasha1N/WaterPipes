@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WaterPipes.GamE
 {
@@ -7,15 +8,13 @@ namespace WaterPipes.GamE
         private int height = 1;
         private int width = 1;
         private Field field;
-        private ArrayOfPipes objectOfPipes = null;
-        private ArrayOfSources objectOfSources = null;
-        private WaterSource[] Sources = null;
-        private Trumpet[] Pipes = null;
+        private List<Trumpet> pipes;
+        private List<WaterSource> sources;
 
-        public InstallationOfPipelineComponents(Field field, ArrayOfPipes objectOfPipes, ArrayOfSources objectOfSources)
+        public InstallationOfPipelineComponents(Field field, List<Trumpet> pipes, List<WaterSource> sources)
         {
-            this.objectOfSources = objectOfSources;
-            this.objectOfPipes = objectOfPipes;
+            this.pipes = pipes;
+            this.sources = sources;
             this.field = field;
         }
 
@@ -29,9 +28,6 @@ namespace WaterPipes.GamE
             Console.ResetColor();
             while (true)
             {
-                Pipes = objectOfPipes.GetPipes();
-                Sources = objectOfSources.GetSources();
-
                 key = Console.ReadKey();
                 Console.SetCursorPosition(width, height);
 
@@ -40,28 +36,28 @@ namespace WaterPipes.GamE
                     Console.WriteLine(' ');
                 }
 
-                for (int i = 0; i < Pipes.Length; i++)
+                for (int i = 0; i < pipes.Count; i++)
                 {
-                    if (Pipes[i] != null)
+                    if (pipes[i] != null)
                     {
-                        if (Pipes[i].Width == width && Pipes[i].Height == height)
+                        if (pipes[i].Width == width && pipes[i].Height == height)
                         {
                             Console.SetCursorPosition(width, height);
-                            Pipes[i].Print();
+                            pipes[i].Print();
                             break;
                         }
                     }
                     else { break; }
                 }
 
-                for (int i = 0; i < Sources.Length; i++)
+                for (int i = 0; i < sources.Count; i++)
                 {
-                    if (Sources[i] != null)
+                    if (sources[i] != null)
                     {
-                        if (Sources[i].Width== width && Sources[i].Height == height)
+                        if (sources[i].Width == width && sources[i].Height == height)
                         {
                             Console.SetCursorPosition(width, height);
-                            Sources[i].Print();
+                            sources[i].Print();
                             break;
                         }
                     }
@@ -119,20 +115,13 @@ namespace WaterPipes.GamE
 
                     if (didDeleted == false)
                     {
-                        for (int i = 0; i < Pipes.Length; i++)
+                        for (int i = 0; i < pipes.Count; i++)
                         {
-                            if (Pipes[i] != null)
+                            if (pipes[i] != null)
                             {
-                                if (height == Pipes[i].Height && Pipes[i].Width == width)
+                                if (height == pipes[i].Height && pipes[i].Width == width)
                                 {
-                                    Array.Clear(Pipes, i, 1);
-                                    int Index = Array.IndexOf(Pipes, null);
-
-                                    for (int j = Index; j < Pipes.Length - 1; j++)
-                                    {
-                                        Pipes[j] = Pipes[j + 1];
-                                    }
-
+                                    pipes.RemoveAt(i);
                                     didDeleted = true;
                                     break;
                                 }
@@ -141,19 +130,13 @@ namespace WaterPipes.GamE
                     }
                     if (didDeleted == false)
                     {
-                        for (int i = 0; i < Sources.Length; i++)
+                        for (int i = 0; i < sources.Count; i++)
                         {
-                            if (Sources[i] != null)
+                            if (sources[i] != null)
                             {
-                                if (height == Sources[i].Height && Sources[i].Width == width)
+                                if (height == sources[i].Height && sources[i].Width == width)
                                 {
-                                    Array.Clear(Sources, i, 1);
-                                    int Index = Array.IndexOf(Sources, null);
-
-                                    for (int j = Index; j < Sources.Length - 1; j++)
-                                    {
-                                        Sources[j] = Sources[j + 1];
-                                    }
+                                    sources.RemoveAt(i);
                                     break;
                                 }
                             }
@@ -164,11 +147,11 @@ namespace WaterPipes.GamE
                 if (key.Key == ConsoleKey.Enter)
                 {
                     bool Is = false;
-                    for (int i = 0; i < Pipes.Length; i++)
+                    for (int i = 0; i < pipes.Count; i++)
                     {
-                        if (Pipes[i] != null)
+                        if (pipes[i] != null)
                         {
-                            if (height == Pipes[i].Height && Pipes[i].Width == width)
+                            if (height == pipes[i].Height && pipes[i].Width == width)
                             {
                                 Is = true;
                                 break;
@@ -178,40 +161,31 @@ namespace WaterPipes.GamE
 
                     if (!Is)
                     {
-                        for (int i = 0; i < Sources.Length; i++)
+                        for (int i = 0; i < sources.Count; i++)
                         {
-                            if (Sources[i] != null)
+                            if (sources[i] != null)
                             {
-                                if (height == Sources[i].Height && Sources[i].Width == width)
+                                if (height == sources[i].Height && sources[i].Width == width)
                                 {
-                                    Array.Clear(Sources, i, 1);
-                                    int Index = Array.IndexOf(Sources, null);
-                                    for (int j = Index; j < Sources.Length - 1; j++)
-                                    {
-                                        Sources[j] = Sources[j + 1];
-                                    }
+                                    sources.RemoveAt(i);
                                     break;
                                 }
                             }
                         }
 
                         Trumpet trumpet = new Trumpet(width, height);
-                        objectOfPipes.AddTrumpet(trumpet);
-
-                        //Console.SetCursorPosition(width, height);
-                        //Console.ForegroundColor = ConsoleColor.Red;
-                        //Console.WriteLine('X');
-                        //Console.ResetColor();
+                        pipes.Add(trumpet);
                     }
                     else
                     {
-                        for (int i = 0; i < Pipes.Length - 1; i++)
+                        for (int i = 0; i < pipes.Count - 1; i++)
                         {
-                            if (height == Pipes[i].Height && Pipes[i].Width == width)
+                            if (height == pipes[i].Height && pipes[i].Width == width)
                             {
                                 Trumpet trumpet = new Trumpet(width, height);
-                                Array.Clear(Pipes, i, 1);
-                                objectOfPipes.AddTrumpet(trumpet);
+
+                                pipes.RemoveAt(i);
+                                pipes.Add(trumpet);
                                 break;
                             }
                         }
@@ -222,11 +196,11 @@ namespace WaterPipes.GamE
                     if (key.Key == ConsoleKey.S)
                     {
                         bool Is = false;
-                        for (int i = 0; i < Sources.Length; i++)
+                        for (int i = 0; i < sources.Count; i++)
                         {
-                            if (Sources[i] != null)
+                            if (sources[i] != null)
                             {
-                                if (height == Sources[i].Height && Sources[i].Width == width)
+                                if (height == sources[i].Height && sources[i].Width == width)
                                 {
                                     Is = true;
                                     break;
@@ -237,40 +211,31 @@ namespace WaterPipes.GamE
 
                         if (!Is)
                         {
-                            for (int i = 0; i < Pipes.Length - 1; i++)
+                            for (int i = 0; i < pipes.Count - 1; i++)
                             {
-                                if (Pipes[i] != null)
+                                if (pipes[i] != null)
                                 {
-                                    if (height == Pipes[i].Height && Pipes[i].Width == width)
+                                    if (height == pipes[i].Height && pipes[i].Width == width)
                                     {
-                                        Array.Clear(Pipes, i, 1);
-                                        int Index = Array.IndexOf(Pipes, null);
-
-                                        for (int j = Index; j < Pipes.Length - 1; j++)
-                                        {
-                                            Pipes[j] = Pipes[j + 1];
-                                        }
+                                        pipes.RemoveAt(i);
                                         break;
                                     }
                                 }
                             }
                             WaterSource waterSource = new WaterSource(width, height);
-                            objectOfSources.AddSource(waterSource);
-
-                          //Console.ForegroundColor = ConsoleColor.Red;
-                          //Console.WriteLine('X');
-                          //  Console.ResetColor();
+                            sources.Add(waterSource);
                         }
                         else
                         {
-                            for (int i = 0; i < Sources.Length - 1; i++)
+                            for (int i = 0; i < sources.Count - 1; i++)
                             {
-                                if (height == Sources[i].Height && Sources[i].Width == width)
+                                if (height == sources[i].Height && sources[i].Width == width)
                                 {
                                     WaterSource waterSource = new WaterSource(width, height);
-                                    Array.Clear(Sources, i, 1);
-                                    objectOfSources.AddSource(waterSource);
+                                    sources.RemoveAt(i);
                                     waterSource.Print();
+                                    sources.Add(waterSource);
+
                                     break;
                                 }
                             }

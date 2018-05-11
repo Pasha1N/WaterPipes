@@ -44,6 +44,5 @@ namespace WaterPipes.GamE
                 return height;
             }
         }
-
     }
 }
