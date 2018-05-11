@@ -15,16 +15,16 @@ namespace WaterPipes.GamE
                 Console.SetCursorPosition(i, 0);
                 Console.WriteLine(border);
 
-                Console.SetCursorPosition(i,height+1); //(height + 1)увеличение длинны поля
+                Console.SetCursorPosition(i, height + 1); //(height + 1)увеличение длинны поля
                 Console.WriteLine(border);
             }
 
             for (int i = 0; i < height + 2; i++)//(height + 2) увеличение длинны поля
             {
-                Console.SetCursorPosition (0,i);
+                Console.SetCursorPosition(0, i);
                 Console.WriteLine(border);
 
-                Console.SetCursorPosition(width+1, i);//(width + 1) увеличение ширины поля
+                Console.SetCursorPosition(width + 1, i);//(width + 1) увеличение ширины поля
                 Console.WriteLine(border);
             }
         }
