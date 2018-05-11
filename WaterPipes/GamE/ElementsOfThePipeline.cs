@@ -2,7 +2,7 @@
 {
     internal abstract class ElementsOfThePipeline
     {
-        protected  int height;
+        protected int height;
         protected int width;
 
         public int Width
@@ -12,7 +12,7 @@
                 return width;
             }
         }
-        
+
         public int Height
         {
             get
