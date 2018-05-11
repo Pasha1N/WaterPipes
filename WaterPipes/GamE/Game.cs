@@ -20,8 +20,8 @@ namespace WaterPipes.GamE
         }
         public void OpenSources()
         {
-            int height = 0;
-            int width = 0;
+            int height;
+            int width;
             int speed = 400;
 
             for (int i = 0; i < sources.Count; i++)
@@ -121,7 +121,6 @@ namespace WaterPipes.GamE
                 {
                     work = false;
                 }
-
                 temporaryArray = null;
                 Thread.Sleep(speed);
             }

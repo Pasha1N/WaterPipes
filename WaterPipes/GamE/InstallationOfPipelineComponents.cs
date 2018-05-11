@@ -236,7 +236,6 @@ namespace WaterPipes.GamE
                                     sources.RemoveAt(i);
                                     waterSource.Print();
                                     sources.Add(waterSource);
-
                                     break;
                                 }
                             }
