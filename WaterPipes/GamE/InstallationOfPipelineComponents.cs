@@ -32,10 +32,7 @@ namespace WaterPipes.Game
                 key = Console.ReadKey();
                 Console.SetCursorPosition(width, height);
 
-                if (true)
-                {
                     Console.WriteLine(' ');//очистка клетки
-                }
 
                 for (int i = 0; i < pipes.Count; i++)
                 {
