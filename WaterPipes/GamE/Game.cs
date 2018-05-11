@@ -31,8 +31,8 @@ namespace WaterPipes.GamE
             {
                 if (sources[i] != null)
                 {
-                    width = sources[i].GetWidth();
-                    height = sources[i].GetHeight();
+                    width = sources[i].Width;
+                    height = sources[i].Height;
 
                     for (int j = -1; j < 2; j += 2)
                     {
@@ -40,13 +40,13 @@ namespace WaterPipes.GamE
                         {
                             if (pipes[p] != null)
                             {
-                                if (pipes[p].GetHeight() == height + j && pipes[p].GetWidth() == width)
+                                if (pipes[p].Height == height + j && pipes[p].Width == width)
                                 {
                                     pipes[p].Fill();
                                     pipes[p].Print();
                                 }
 
-                                if (pipes[p].GetWidth() == width + j && pipes[p].GetHeight() == height)
+                                if (pipes[p].Width == width + j && pipes[p].Height == height)
                                 {
                                     pipes[p].Fill();
                                     pipes[p].Print();
@@ -67,10 +67,10 @@ namespace WaterPipes.GamE
                 {
                     if (pipes[l] != null)
                     {
-                        if (!pipes[l].IsEmpty())
+                        if (!pipes[l].IsEmpty)
                         {
-                            width = pipes[l].GetWidth();
-                            height = pipes[l].GetHeight();
+                            width = pipes[l].Width;
+                            height = pipes[l].Height;
 
                             for (int j = -1; j < 2; j += 2)
                             {
@@ -78,17 +78,17 @@ namespace WaterPipes.GamE
                                 {
                                     if (pipes[p] != null)
                                     {
-                                        if (pipes[p].GetHeight() == height + j && pipes[p].GetWidth() == width)
+                                        if (pipes[p].Height == height + j && pipes[p].Width== width)
                                         {
-                                            if (pipes[p].IsEmpty())
+                                            if (pipes[p].IsEmpty)
                                             {
                                                 objectTemporaryArray.AddTrumpet(pipes[p]);
                                             }
                                         }
 
-                                        if (pipes[p].GetWidth() == width + j && pipes[p].GetHeight() == height)
+                                        if (pipes[p].Width == width + j && pipes[p].Height == height)
                                         {
-                                            if (pipes[p].IsEmpty())
+                                            if (pipes[p].IsEmpty)
                                             {
                                                 objectTemporaryArray.AddTrumpet(pipes[p]);
                                             }
@@ -113,7 +113,7 @@ namespace WaterPipes.GamE
                             {
                                 if (pipes[j] != null)
                                 {
-                                    if (temporeryArray[i].GetWidth() == pipes[j].GetWidth() && temporeryArray[i].GetHeight() == pipes[j].GetHeight())
+                                    if (temporeryArray[i].Width == pipes[j].Width && temporeryArray[i].Height == pipes[j].Height)
                                     {
                                         pipes[j].Fill();
                                         pipes[j].Print();

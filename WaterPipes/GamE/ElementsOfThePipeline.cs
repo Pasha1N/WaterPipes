@@ -5,18 +5,23 @@
         protected  int height;
         protected int width;
 
-        public int GetWidth()
+        public int Width
         {
-            return width;
+            get
+            {
+                return width;
+            }
         }
-
-        public int GetHeight()
+        
+        public int Height
         {
-            return height;
+            get
+            {
+                return height;
+            }
         }
 
         public abstract void Print();
 
     }
 }
-

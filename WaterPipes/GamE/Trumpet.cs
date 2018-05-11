@@ -18,9 +18,12 @@ namespace WaterPipes.GamE
             empty = false;
         }
 
-        public bool IsEmpty()
+        public bool IsEmpty
         {
-            return empty;
+            get
+            {
+                return empty;
+            }
         }
 
         public override void Print()

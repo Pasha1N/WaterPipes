@@ -29,14 +29,20 @@ namespace WaterPipes.GamE
             Console.SetCursorPosition(0, 20);
         }
 
-        public int GetWidth()
+        public int Width
         {
-            return width;
+            get
+            {
+                return width;
+            }
         }
 
-        public int Getheight()
+        public int Height
         {
-            return height;
+            get
+            {
+                return height;
+            }
         }
 
     }
