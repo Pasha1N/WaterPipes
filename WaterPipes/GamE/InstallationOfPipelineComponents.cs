@@ -32,34 +32,26 @@ namespace WaterPipes.Game
                 key = Console.ReadKey();
                 Console.SetCursorPosition(width, height);
 
-                    Console.WriteLine(' ');//очистка клетки
+                Console.WriteLine(' ');//очистка клетки
 
-                for (int i = 0; i < pipes.Count; i++)
+                foreach (Trumpet pipe in pipes)
                 {
-                    if (pipes[i] != null)
+                    if (height == pipe.Height && pipe.Width == width)
                     {
-                        if (pipes[i].Width == width && pipes[i].Height == height)
-                        {
-                            Console.SetCursorPosition(width, height);
-                            pipes[i].Print();
-                            break;
-                        }
+                        Console.SetCursorPosition(width, height);
+                        pipe.Print();
+                        break;
                     }
-                    else { break; }
                 }
 
-                for (int i = 0; i < sources.Count; i++)
+                foreach (WaterSource source in sources)
                 {
-                    if (sources[i] != null)
+                    if (height == source.Height && source.Width == width)
                     {
-                        if (sources[i].Width == width && sources[i].Height == height)
-                        {
-                            Console.SetCursorPosition(width, height);
-                            sources[i].Print();
-                            break;
-                        }
+                        Console.SetCursorPosition(width, height);
+                        source.Print();
+                        break;
                     }
-                    else { break; }
                 }
 
                 if (key.Key == ConsoleKey.RightArrow)
@@ -145,15 +137,13 @@ namespace WaterPipes.Game
                 if (key.Key == ConsoleKey.Enter)
                 {
                     bool @is = false;
-                    for (int i = 0; i < pipes.Count; i++)
+
+                    foreach (Trumpet pipe in pipes)
                     {
-                        if (pipes[i] != null)
+                        if (height == pipe.Height && pipe.Width == width)
                         {
-                            if (height == pipes[i].Height && pipes[i].Width == width)
-                            {
-                                @is = true;
-                                break;
-                            }
+                            @is = true;
+                            break;
                         }
                     }
 
@@ -194,17 +184,16 @@ namespace WaterPipes.Game
                     if (key.Key == ConsoleKey.S)
                     {
                         bool @is = false;
-                        for (int i = 0; i < sources.Count; i++)
+
+                        foreach (WaterSource source in sources)
                         {
-                            if (sources[i] != null)
+                            if (height == source.Height && source.Width == width)
                             {
-                                if (height == sources[i].Height && sources[i].Width == width)
-                                {
-                                    @is = true;
-                                    break;
-                                }
+                                @is = true;
+                                break;
                             }
                         }
+
                         Console.SetCursorPosition(width, height);
 
                         if (!@is)
