@@ -103,7 +103,7 @@ namespace WaterPipes.Game
                 {
                     bool didDeleted = false;
 
-                    if (didDeleted == false)
+                    if (!didDeleted)
                     {
                         for (int i = 0; i < pipes.Count; i++)
                         {
@@ -118,7 +118,7 @@ namespace WaterPipes.Game
                             }
                         }
                     }
-                    if (didDeleted == false)
+                    if (!didDeleted)
                     {
                         for (int i = 0; i < sources.Count; i++)
                         {
