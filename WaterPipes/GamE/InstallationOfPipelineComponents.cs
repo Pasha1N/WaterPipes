@@ -5,6 +5,7 @@ namespace WaterPipes.GamE
 {
     internal class InstallationOfPipelineComponents
     {
+        private char cursor = 'X';
         private int height = 1;
         private int width = 1;
         private Field field;
@@ -24,7 +25,7 @@ namespace WaterPipes.GamE
             Console.SetCursorPosition(width, height);
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine('X');
+            Console.WriteLine(cursor);
             Console.ResetColor();
             while (true)
             {
@@ -33,7 +34,7 @@ namespace WaterPipes.GamE
 
                 if (true)
                 {
-                    Console.WriteLine(' ');
+                    Console.WriteLine(' ');//очистка клетки
                 }
 
                 for (int i = 0; i < pipes.Count; i++)
@@ -245,7 +246,7 @@ namespace WaterPipes.GamE
 
                 Console.SetCursorPosition(width, height);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine('X');
+                Console.WriteLine(cursor);
                 Console.ResetColor();
                 field.Show();
             }

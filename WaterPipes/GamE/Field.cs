@@ -6,27 +6,27 @@ namespace WaterPipes.GamE
     {
         private int height = 15;
         private int width = 30;
+        private char border = '+';
 
         public void Show()
         {
-            for (int i = 0; i < width + 2; i++)
+            for (int i = 0; i < width + 2; i++)//(width + 2) увеличение ширины поля 
             {
                 Console.SetCursorPosition(i, 0);
-                Console.WriteLine("+");
+                Console.WriteLine(border);
 
-                Console.SetCursorPosition(i,height+1);
-                Console.WriteLine("+");
+                Console.SetCursorPosition(i,height+1); //(height + 1)увеличение длинны поля
+                Console.WriteLine(border);
             }
 
-            for (int i = 0; i < height + 2; i++)
+            for (int i = 0; i < height + 2; i++)//(height + 2) увеличение длинны поля
             {
                 Console.SetCursorPosition (0,i);
-                Console.WriteLine("+");
+                Console.WriteLine(border);
 
-                Console.SetCursorPosition(width+1, i);
-                Console.WriteLine("+");
+                Console.SetCursorPosition(width+1, i);//(width + 1) увеличение ширины поля
+                Console.WriteLine(border);
             }
-            Console.SetCursorPosition(0, 20);
         }
 
         public int Width
