@@ -1,4 +1,4 @@
-﻿using WaterPipes.GamE;
+﻿using WaterPipes.Game;
 
 namespace WaterPipes
 {
@@ -6,7 +6,7 @@ namespace WaterPipes
     {
         static void Main()
         {
-            Game game = new Game();
+            StartGame game = new StartGame();
         }
     }
 }

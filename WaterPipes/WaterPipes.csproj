@@ -42,14 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GamE\ElementsOfThePipeline.cs" />
-    <Compile Include="GamE\Game.cs" />
-    <Compile Include="GamE\Field.cs" />
-    <Compile Include="GamE\InstallationOfPipelineComponents.cs" />
-    <Compile Include="GamE\WaterSource.cs" />
+    <Compile Include="Game\ElementsOfThePipeline.cs" />
+    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\Field.cs" />
+    <Compile Include="Game\InstallationOfPipelineComponents.cs" />
+    <Compile Include="Game\WaterSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GamE\Trumpet.cs" />
+    <Compile Include="Game\Trumpet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

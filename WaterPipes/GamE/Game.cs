@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 
-namespace WaterPipes.GamE
+namespace WaterPipes.Game
 {
-    internal class Game
+    internal class StartGame
     {
         private List<Trumpet> pipes = new List<Trumpet>();
         private List<WaterSource> sources = new List<WaterSource>();
 
-        public Game()
+        public StartGame()
         {
             Field field = new Field();
             field.Show();

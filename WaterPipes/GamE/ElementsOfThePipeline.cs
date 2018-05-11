@@ -1,4 +1,4 @@
-﻿namespace WaterPipes.GamE
+﻿namespace WaterPipes.Game
 {
     internal abstract class ElementsOfThePipeline
     {

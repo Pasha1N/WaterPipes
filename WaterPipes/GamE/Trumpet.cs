@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WaterPipes.GamE
+namespace WaterPipes.Game
 {
     internal class Trumpet : ElementsOfThePipeline
     {

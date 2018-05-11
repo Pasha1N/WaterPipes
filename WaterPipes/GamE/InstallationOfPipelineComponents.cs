@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace WaterPipes.GamE
+namespace WaterPipes.Game
 {
     internal class InstallationOfPipelineComponents
     {
@@ -147,20 +147,20 @@ namespace WaterPipes.GamE
 
                 if (key.Key == ConsoleKey.Enter)
                 {
-                    bool Is = false;
+                    bool @is = false;
                     for (int i = 0; i < pipes.Count; i++)
                     {
                         if (pipes[i] != null)
                         {
                             if (height == pipes[i].Height && pipes[i].Width == width)
                             {
-                                Is = true;
+                                @is = true;
                                 break;
                             }
                         }
                     }
 
-                    if (!Is)
+                    if (!@is)
                     {
                         for (int i = 0; i < sources.Count; i++)
                         {
@@ -196,21 +196,21 @@ namespace WaterPipes.GamE
                 {
                     if (key.Key == ConsoleKey.S)
                     {
-                        bool Is = false;
+                        bool @is = false;
                         for (int i = 0; i < sources.Count; i++)
                         {
                             if (sources[i] != null)
                             {
                                 if (height == sources[i].Height && sources[i].Width == width)
                                 {
-                                    Is = true;
+                                    @is = true;
                                     break;
                                 }
                             }
                         }
                         Console.SetCursorPosition(width, height);
 
-                        if (!Is)
+                        if (!@is)
                         {
                             for (int i = 0; i < pipes.Count - 1; i++)
                             {
