@@ -9,22 +9,25 @@ namespace WaterPipes.Game
         private char border = '+';
 
         public void Show()
-        {
-            for (int i = 0; i < width + 2; i++)//(width + 2) увеличение ширины поля 
+        {   //(width + 2) увеличение ширины поля 
+            for (int i = 0; i < width + 2; i++)
             {
                 Console.SetCursorPosition(i, 0);
                 Console.WriteLine(border);
 
-                Console.SetCursorPosition(i, height + 1); //(height + 1)увеличение длинны поля
+                //(height + 1)увеличение длинны поля
+                Console.SetCursorPosition(i, height + 1);
                 Console.WriteLine(border);
             }
 
-            for (int i = 0; i < height + 2; i++)//(height + 2) увеличение длинны поля
+            //(height + 2) увеличение длинны поля
+            for (int i = 0; i < height + 2; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.WriteLine(border);
 
-                Console.SetCursorPosition(width + 1, i);//(width + 1) увеличение ширины поля
+                //(width + 1) увеличение ширины поля
+                Console.SetCursorPosition(width + 1, i);
                 Console.WriteLine(border);
             }
         }
