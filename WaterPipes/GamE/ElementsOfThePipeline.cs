@@ -2,8 +2,8 @@
 {
     internal abstract class ElementsOfThePipeline
     {
-        protected int height;
-        protected int width;
+        protected internal int height;
+        protected internal int width;
 
         public int Width
         {
