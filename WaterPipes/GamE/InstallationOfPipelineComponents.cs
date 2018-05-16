@@ -12,9 +12,9 @@ namespace WaterPipes.Game
         private List<Trumpet> pipes;
         private List<WaterSource> sources;
 
-        public InstallationOfPipelineComponents(Field field, List<Trumpet> pipes, List<WaterSource> sources)
+        public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, List<WaterSource> sources)
         {
-            this.pipes = pipes;
+            this.pipes = (List<Trumpet>)pipes;
             this.sources = sources;
             this.field = field;
         }
@@ -53,6 +53,7 @@ namespace WaterPipes.Game
                         break;
                     }
                 }
+               
 
                 if (key.Key == ConsoleKey.RightArrow)
                 {
