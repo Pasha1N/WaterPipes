@@ -8,13 +8,13 @@ namespace WaterPipes.Game
 
         public WaterSource(int width, int height)
         {
-            this.width = width;
-            this.height = height;
+            Width = width;
+            Height = height;
         }
 
         public override void Print()
         {
-            Console.SetCursorPosition(width, height);
+            Console.SetCursorPosition(Width, Height);
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(waterSource);
             Console.ResetColor();

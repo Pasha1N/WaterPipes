@@ -9,8 +9,8 @@ namespace WaterPipes.Game
 
         public Trumpet(int width, int height)
         {
-            this.width = width;
-            this.height = height;
+            Width = width;
+            Height = height;
         }
 
         public void Fill()
@@ -28,7 +28,7 @@ namespace WaterPipes.Game
 
         public override void Print()
         {
-            Console.SetCursorPosition(width, height);
+            Console.SetCursorPosition(Width, Height);
             if (!empty)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;

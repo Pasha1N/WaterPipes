@@ -30,9 +30,10 @@ namespace WaterPipes.Game
             while (true)
             {
                 key = Console.ReadKey();
-                Console.SetCursorPosition(width, height);
 
-                Console.WriteLine(' ');//очистка клетки
+                Console.SetCursorPosition(width, height);
+                //очистка клетки
+                Console.WriteLine(' ');
 
                 foreach (Trumpet pipe in pipes)
                 {
@@ -53,7 +54,6 @@ namespace WaterPipes.Game
                         break;
                     }
                 }
-               
 
                 if (key.Key == ConsoleKey.RightArrow)
                 {
