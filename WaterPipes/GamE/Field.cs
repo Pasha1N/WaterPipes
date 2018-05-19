@@ -8,14 +8,14 @@ namespace WaterPipes.Game
         private int width = 30;
         private char border = '+';
 
-        public int Width
-        {
-            get { return width; }
-        }
-
         public int Height
         {
             get { return height; }
+        }
+
+        public int Width
+        {
+            get { return width; }
         }
 
         public void Show()
