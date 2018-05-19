@@ -8,6 +8,16 @@ namespace WaterPipes.Game
         private int width = 30;
         private char border = '+';
 
+        public int Width
+        {
+            get { return width; }
+        }
+
+        public int Height
+        {
+            get { return height; }
+        }
+
         public void Show()
         {   //(width + 2) увеличение ширины поля 
             for (int i = 0; i < width + 2; i++)
@@ -30,16 +40,6 @@ namespace WaterPipes.Game
                 Console.SetCursorPosition(width + 1, i);
                 Console.WriteLine(border);
             }
-        }
-
-        public int Width
-        {
-            get{return width;}
-        }
-
-        public int Height
-        {
-            get {return height;}
-        }
+        }    
     }
 }
