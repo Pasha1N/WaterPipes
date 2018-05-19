@@ -7,11 +7,12 @@ namespace WaterPipes.Game
 {
     internal class InstallationOfPipelineComponents
     {
+        private List<ICommand> commands = new List<ICommand>();
         private Cursor cursor = new Cursor(1,1);
         private Field field;
         private List<Trumpet> pipes;
+        private List<PipelineElement> pipelineElement = new List<PipelineElement>();
         private List<WaterSource> sources;
-        private List<ICommand> commands = new List<ICommand>();
 
         public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, IEnumerable<WaterSource> sources)
         {
@@ -23,8 +24,8 @@ namespace WaterPipes.Game
         public void Establish()
         {
             ConsoleKeyInfo key;
-            cursor.Show();
             Bool work = new Bool();
+            cursor.Show();
             work.Value = true;
 
             DownArrow downArrow = new DownArrow(cursor,field);
@@ -48,27 +49,19 @@ namespace WaterPipes.Game
             while (work.Value)
             {
                 key = Console.ReadKey();
-                Console.SetCursorPosition(cursor.X, cursor.Y);
+                pipelineElement.AddRange(pipes);
+                pipelineElement.AddRange(sources);
 
+                Console.SetCursorPosition(cursor.X, cursor.Y);
                 //очистка хвоста
                 Console.WriteLine(' ');
 
-                foreach (Trumpet pipe in pipes)
+                foreach (PipelineElement element in pipelineElement)
                 {
-                    if (cursor.Y == pipe.Height && pipe.Width == cursor.X )
+                    if (cursor.Y == element.Height && element.Width == cursor.X)
                     {
                         Console.SetCursorPosition(cursor.X, cursor.Y);
-                        pipe.Print();
-                        break;
-                    }
-                }
-
-                foreach (WaterSource source in sources)
-                {
-                    if (cursor.Y == source.Height && source.Width == cursor.X)
-                    {
-                        Console.SetCursorPosition(cursor.X, cursor.Y);
-                        source.Print();
+                        element.Print();
                         break;
                     }
                 }
@@ -79,7 +72,7 @@ namespace WaterPipes.Game
                 }
 
                 Console.ResetColor();
-                cursor.Show();              
+                cursor.Show();
                 field.Show();
             }
         }
