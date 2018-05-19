@@ -1,15 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    class LeftArrow : Command
+    internal class LeftArrow : ICommand
     {
+        private Cursor cursor;
 
+        public LeftArrow(Cursor cursor)
+        {
+            this.cursor = cursor;
+        }
 
-
+        public void Executive(ConsoleKeyInfo key)
+        {
+            if (key.Key == ConsoleKey.LeftArrow)
+            {
+                if (cursor.X > 1)
+                {
+                    cursor.X--;
+                }
+            }
+        }
     }
 }

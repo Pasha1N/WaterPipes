@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using WaterPipes.Command;
+using WaterPipes.Game.MyTypes;
 
 namespace WaterPipes.Game
 {
     internal class InstallationOfPipelineComponents
     {
-        private char cursor = 'X';
-        private int height = 1;
-        private int width = 1;
+        private Cursor cursor = new Cursor(1,1);
         private Field field;
         private List<Trumpet> pipes;
         private List<WaterSource> sources;
+        private List<ICommand> commands = new List<ICommand>();
 
         public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, List<WaterSource> sources)
         {
@@ -22,23 +23,41 @@ namespace WaterPipes.Game
         public void Establish()
         {
             ConsoleKeyInfo key;
-            Console.SetCursorPosition(width, height);
+            cursor.Show();
+            Bool work = new Bool();
+            work.Value = true;
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(cursor);
-            Console.ResetColor();
-            while (true)
+            DownArrow downArrow = new DownArrow(cursor,field);
+            LeftArrow leftArrow = new LeftArrow(cursor);
+            RightArrow rightArrow = new RightArrow(cursor, field);
+            UpArrow upArrow = new UpArrow(cursor);
+            Spacebar spacebar = new Spacebar(work);
+            Delete delete = new Delete(cursor, sources, pipes);
+            Enter enter = new Enter(cursor, sources, pipes);
+            S s = new S(cursor, sources, pipes);
+
+            commands.Add(downArrow);
+            commands.Add(leftArrow);
+            commands.Add(rightArrow);
+            commands.Add(upArrow);
+            commands.Add(spacebar);
+            commands.Add(delete);
+            commands.Add(enter);
+            commands.Add(s);
+
+            while (work.Value)
             {
                 key = Console.ReadKey();
-                Console.SetCursorPosition(width, height);
+                Console.SetCursorPosition(cursor.X, cursor.Y);
 
-                Console.WriteLine(' ');//очистка клетки
+                //очистка хвоста
+                Console.WriteLine(' ');
 
                 foreach (Trumpet pipe in pipes)
                 {
-                    if (height == pipe.Height && pipe.Width == width)
+                    if (cursor.Y == pipe.Height && pipe.Width == cursor.X )
                     {
-                        Console.SetCursorPosition(width, height);
+                        Console.SetCursorPosition(cursor.X, cursor.Y);
                         pipe.Print();
                         break;
                     }
@@ -46,192 +65,21 @@ namespace WaterPipes.Game
 
                 foreach (WaterSource source in sources)
                 {
-                    if (height == source.Height && source.Width == width)
+                    if (cursor.Y == source.Height && source.Width == cursor.X)
                     {
-                        Console.SetCursorPosition(width, height);
+                        Console.SetCursorPosition(cursor.X, cursor.Y);
                         source.Print();
                         break;
                     }
                 }
-               
 
-                if (key.Key == ConsoleKey.RightArrow)
+                foreach (ICommand command in commands)
                 {
-                    width++;
+                    command.Executive(key);
                 }
 
-                if (key.Key == ConsoleKey.UpArrow)
-                {
-                    height--;
-                }
-
-                if (key.Key == ConsoleKey.DownArrow)
-                {
-                    height++;
-                }
-
-                if (key.Key == ConsoleKey.LeftArrow)
-                {
-                    width--;
-                }
-
-                if (height == field.Height + 1)
-                {
-                    height--;
-                }
-
-                if (height == 0)
-                {
-                    height++;
-                }
-
-                if (width == field.Width + 1)
-                {
-                    width--;
-                }
-
-                if (width == 0)
-                {
-                    width++;
-                }
-
-                if (key.Key == ConsoleKey.Spacebar)
-                {
-                    break;
-                }
-
-                if (key.Key == ConsoleKey.Delete)
-                {
-                    bool didDeleted = false;
-
-                    if (!didDeleted)
-                    {
-                        for (int i = 0; i < pipes.Count; i++)
-                        {
-                            if (pipes[i] != null)
-                            {
-                                if (height == pipes[i].Height && pipes[i].Width == width)
-                                {
-                                    pipes.RemoveAt(i);
-                                    didDeleted = true;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (!didDeleted)
-                    {
-                        for (int i = 0; i < sources.Count; i++)
-                        {
-                            if (sources[i] != null)
-                            {
-                                if (height == sources[i].Height && sources[i].Width == width)
-                                {
-                                    sources.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (key.Key == ConsoleKey.Enter)
-                {
-                    bool @is = false;
-
-                    foreach (Trumpet pipe in pipes)
-                    {
-                        if (height == pipe.Height && pipe.Width == width)
-                        {
-                            @is = true;
-                            break;
-                        }
-                    }
-
-                    if (!@is)
-                    {
-                        for (int i = 0; i < sources.Count; i++)
-                        {
-                            if (sources[i] != null)
-                            {
-                                if (height == sources[i].Height && sources[i].Width == width)
-                                {
-                                    sources.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                        }
-
-                        Trumpet trumpet = new Trumpet(width, height);
-                        pipes.Add(trumpet);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < pipes.Count - 1; i++)
-                        {
-                            if (height == pipes[i].Height && pipes[i].Width == width)
-                            {
-                                Trumpet trumpet = new Trumpet(width, height);
-
-                                pipes.RemoveAt(i);
-                                pipes.Add(trumpet);
-                                break;
-                            }
-                        }
-                    }
-                }
-                else if (key.Key == ConsoleKey.S)
-                {
-                    bool @is = false;
-
-                    foreach (WaterSource source in sources)
-                    {
-                        if (height == source.Height && source.Width == width)
-                        {
-                            @is = true;
-                            break;
-                        }
-                    }
-
-                    Console.SetCursorPosition(width, height);
-
-                    if (!@is)
-                    {
-                        for (int i = 0; i < pipes.Count - 1; i++)
-                        {
-                            if (pipes[i] != null)
-                            {
-                                if (height == pipes[i].Height && pipes[i].Width == width)
-                                {
-                                    pipes.RemoveAt(i);
-                                    break;
-                                }
-                            }
-                        }
-                        WaterSource waterSource = new WaterSource(width, height);
-                        sources.Add(waterSource);
-                    }
-                    else
-                    {
-                        for (int i = 0; i < sources.Count - 1; i++)
-                        {
-                            if (height == sources[i].Height && sources[i].Width == width)
-                            {
-                                WaterSource waterSource = new WaterSource(width, height);
-                                sources.RemoveAt(i);
-                                waterSource.Print();
-                                sources.Add(waterSource);
-                                break;
-                            }
-                        }
-                    }
-                }
-
-
-                Console.SetCursorPosition(width, height);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(cursor);
                 Console.ResetColor();
+                cursor.Show();              
                 field.Show();
             }
         }

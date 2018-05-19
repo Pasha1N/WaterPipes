@@ -1,12 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WaterPipes.Game.MyTypes;
 
 namespace WaterPipes.Command
 {
-    class Spacebar : Command
+    internal class Spacebar : ICommand
     {
+        Bool @bool;
+        public Spacebar(Bool @bool)
+        {
+            this.@bool = @bool;
+        }
+
+        public void Executive(ConsoleKeyInfo key)
+        {
+            if (key.Key == ConsoleKey.Spacebar)
+            {
+                @bool.Value = false;
+            }
+        }
     }
 }
