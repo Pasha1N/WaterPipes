@@ -34,18 +34,12 @@ namespace WaterPipes.Game
 
         public int Width
         {
-            get
-            {
-                return width;
-            }
+            get{return width;}
         }
 
         public int Height
         {
-            get
-            {
-                return height;
-            }
+            get {return height;}
         }
     }
 }

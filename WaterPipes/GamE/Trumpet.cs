@@ -20,10 +20,7 @@ namespace WaterPipes.Game
 
         public bool IsEmpty
         {
-            get
-            {
-                return empty;
-            }
+            get{return empty;}
         }
 
         public override void Print()
