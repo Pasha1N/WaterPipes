@@ -13,10 +13,10 @@ namespace WaterPipes.Game
         private List<WaterSource> sources;
         private List<ICommand> commands = new List<ICommand>();
 
-        public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, List<WaterSource> sources)
+        public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, IEnumerable<WaterSource> sources)
         {
             this.pipes = (List<Trumpet>)pipes;
-            this.sources = sources;
+            this.sources = (List<WaterSource>) sources;
             this.field = field;
         }
 
