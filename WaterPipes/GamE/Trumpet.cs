@@ -2,7 +2,7 @@
 
 namespace WaterPipes.Game
 {
-    internal class Trumpet : ElementsOfThePipeline
+    internal class Trumpet : PipelineElement
     {
         private char trumpet = 'O';
         private bool empty = true;

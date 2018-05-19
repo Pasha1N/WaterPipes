@@ -1,6 +1,6 @@
 ﻿namespace WaterPipes.Game
 {
-    internal abstract class ElementsOfThePipeline
+    internal abstract class PipelineElement
     {
         private int height;
         private int width;
