@@ -2,7 +2,7 @@
 
 namespace WaterPipes.Game
 {
-    class Field
+    internal class Field
     {
         private int height = 15;
         private int width = 30;
