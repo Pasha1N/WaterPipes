@@ -2,13 +2,13 @@
 
 namespace WaterPipes.Game
 {
-    class Cursor
+    internal class Cursor
     {
         private char cursor = 'X';
         private int x;
         private int y;
 
-        public Cursor(int x,int y)
+        public Cursor(int x, int y)
         {
             this.x = x;
             this.y = y;
