@@ -12,9 +12,7 @@ namespace WaterPipes.Game
         {
             Field field = new Field();
             field.Show();
-
             InstallationOfPipelineComponents installationOfElements = new InstallationOfPipelineComponents(field, pipes, sources);
-
             installationOfElements.Establish();
             OpenSources();
         }

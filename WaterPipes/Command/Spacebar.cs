@@ -5,7 +5,8 @@ namespace WaterPipes.Command
 {
     internal class Spacebar : ICommand
     {
-        Bool @bool;
+        private Bool @bool;
+
         public Spacebar(Bool @bool)
         {
             this.@bool = @bool;

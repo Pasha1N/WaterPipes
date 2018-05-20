@@ -51,7 +51,6 @@ namespace WaterPipes.Game
                 key = Console.ReadKey();
                 pipelineElement.AddRange(pipes);
                 pipelineElement.AddRange(sources);
-
                 Console.SetCursorPosition(cursor.X, cursor.Y);
                 // очистка хвоста
                 Console.WriteLine(' ');
