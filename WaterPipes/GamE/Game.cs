@@ -58,7 +58,7 @@ namespace WaterPipes.Game
             bool work = true;
             while (work)
             {
-                List<Trumpet> temporaryArray = new List<Trumpet>();
+                List<Trumpet> fullPipes = new List<Trumpet>();
 
                 for (int l = 0; l < pipes.Count; l++)
                 {
@@ -79,7 +79,7 @@ namespace WaterPipes.Game
                                         {
                                             if (pipes[p].IsEmpty)
                                             {
-                                                temporaryArray.Add(pipes[p]);
+                                                fullPipes.Add(pipes[p]);
                                             }
                                         }
 
@@ -87,7 +87,7 @@ namespace WaterPipes.Game
                                         {
                                             if (pipes[p].IsEmpty)
                                             {
-                                                temporaryArray.Add(pipes[p]);
+                                                fullPipes.Add(pipes[p]);
                                             }
                                         }
                                     }
@@ -97,17 +97,17 @@ namespace WaterPipes.Game
                     }
                 }
 
-                if (temporaryArray.Count > 0)
+                if (fullPipes.Count > 0)
                 {
-                    for (int i = 0; i < temporaryArray.Count; i++)
+                    for (int i = 0; i < fullPipes.Count; i++)
                     {
-                        if (temporaryArray[i] != null)
+                        if (fullPipes[i] != null)
                         {
                             for (int j = 0; j < pipes.Count; j++)
                             {
                                 if (pipes[j] != null)
                                 {
-                                    if (temporaryArray[i].Width == pipes[j].Width && temporaryArray[i].Height == pipes[j].Height)
+                                    if (fullPipes[i].Width == pipes[j].Width && fullPipes[i].Height == pipes[j].Height)
                                     {
                                         pipes[j].Fill();
                                         pipes[j].Print();
@@ -121,7 +121,7 @@ namespace WaterPipes.Game
                 {
                     work = false;
                 }
-                temporaryArray = null;
+                fullPipes = null;
                 Thread.Sleep(speed);
             }
         }
