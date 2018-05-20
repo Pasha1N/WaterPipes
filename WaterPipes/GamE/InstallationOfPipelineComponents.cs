@@ -53,7 +53,7 @@ namespace WaterPipes.Game
                 pipelineElement.AddRange(sources);
 
                 Console.SetCursorPosition(cursor.X, cursor.Y);
-                //очистка хвоста
+                // очистка хвоста
                 Console.WriteLine(' ');
 
                 foreach (PipelineElement element in pipelineElement)
