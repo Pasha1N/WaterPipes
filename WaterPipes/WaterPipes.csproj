@@ -52,7 +52,7 @@
     <Compile Include="Command\DownArrow.cs" />
     <Compile Include="Game\Cursor.cs" />
     <Compile Include="Game\PipelineElement.cs" />
-    <Compile Include="Game\Game.cs" />
+    <Compile Include="Game\StartGame.cs" />
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\InstallationOfPipelineComponents.cs" />
     <Compile Include="Command\Spacebar.cs" />
