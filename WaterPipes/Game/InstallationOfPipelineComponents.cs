@@ -28,14 +28,14 @@ namespace WaterPipes.Game
             cursor.Show();
             work.Value = true;
 
-            DownArrow downArrow = new DownArrow(cursor,field);
-            LeftArrow leftArrow = new LeftArrow(cursor);
-            RightArrow rightArrow = new RightArrow(cursor, field);
-            UpArrow upArrow = new UpArrow(cursor);
-            Spacebar spacebar = new Spacebar(work);
-            Delete delete = new Delete(cursor, sources, pipes);
-            Enter enter = new Enter(cursor, sources, pipes);
-            S s = new S(cursor, sources, pipes);
+            Down downArrow = new Down(cursor,field);
+            Left leftArrow = new Left(cursor);
+            Right rightArrow = new Right(cursor, field);
+            Up upArrow = new Up(cursor);
+            Start spacebar = new Start(work);
+            Remove delete = new Remove(cursor, sources, pipes);
+            AddPipe enter = new AddPipe(cursor, sources, pipes);
+            AddSource s = new AddSource(cursor, sources, pipes);
 
             commands.Add(downArrow);
             commands.Add(leftArrow);

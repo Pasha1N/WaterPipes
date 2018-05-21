@@ -3,24 +3,22 @@ using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    internal class RightArrow : ICommand
+    internal class Left : ICommand
     {
         private Cursor cursor;
-        private Field field;
 
-        public RightArrow(Cursor cursor, Field field)
+        public Left(Cursor cursor)
         {
-            this.field = field;
             this.cursor = cursor;
         }
 
         public void Executive(ConsoleKeyInfo key)
         {
-            if (key.Key == ConsoleKey.RightArrow)
+            if (key.Key == ConsoleKey.LeftArrow)
             {
-                if (cursor.X < field.Width - 1)
+                if (cursor.X > 1)
                 {
-                    cursor.X++;
+                    cursor.X--;
                 }
             }
         }

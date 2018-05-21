@@ -3,12 +3,12 @@ using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    internal class DownArrow : ICommand
+    internal class Down : ICommand
     {
         private Cursor cursor;
         private Field field;
 
-        public DownArrow(Cursor cursor, Field field)
+        public Down(Cursor cursor, Field field)
         {
             this.cursor = cursor;
             this.field = field;

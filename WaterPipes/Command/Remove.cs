@@ -4,13 +4,13 @@ using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    internal class Enter : ICommand
+    internal class Remove : ICommand
     {
         private List<WaterSource> sources;
         private List<Trumpet> pipes;
         private Cursor cursor;
 
-        public Enter(Cursor cursor, IEnumerable<WaterSource> sources, IEnumerable<Trumpet> pipes)
+        public Remove(Cursor cursor, IEnumerable<WaterSource> sources, IEnumerable<Trumpet> pipes)
         {
             this.cursor = cursor;
             this.sources = (List<WaterSource>)sources;
@@ -19,20 +19,26 @@ namespace WaterPipes.Command
 
         public void Executive(ConsoleKeyInfo key)
         {
-            if (key.Key == ConsoleKey.Enter)
+            if (key.Key == ConsoleKey.Delete)
             {
-                bool @is = false;
+                bool didDeleted = false;
 
-                foreach (Trumpet pipe in pipes)
+                if (!didDeleted)
                 {
-                    if (cursor.Y == pipe.Height && pipe.Width == cursor.X)
+                    for (int i = 0; i < pipes.Count; i++)
                     {
-                        @is = true;
-                        break;
+                        if (pipes[i] != null)
+                        {
+                            if (cursor.Y == pipes[i].Height && pipes[i].Width == cursor.X)
+                            {
+                                pipes.RemoveAt(i);
+                                didDeleted = true;
+                                break;
+                            }
+                        }
                     }
                 }
-
-                if (!@is)
+                if (!didDeleted)
                 {
                     for (int i = 0; i < sources.Count; i++)
                     {
@@ -43,23 +49,6 @@ namespace WaterPipes.Command
                                 sources.RemoveAt(i);
                                 break;
                             }
-                        }
-                    }
-
-                    Trumpet trumpet = new Trumpet(cursor.X, cursor.Y);
-                    pipes.Add(trumpet);
-                }
-                else
-                {
-                    for (int i = 0; i < pipes.Count - 1; i++)
-                    {
-                        if (cursor.Y == pipes[i].Height && pipes[i].Width == cursor.X)
-                        {
-                            Trumpet trumpet = new Trumpet(cursor.X, cursor.Y);
-
-                            pipes.RemoveAt(i);
-                            pipes.Add(trumpet);
-                            break;
                         }
                     }
                 }

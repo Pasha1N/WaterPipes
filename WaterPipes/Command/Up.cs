@@ -3,11 +3,11 @@ using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    internal class UpArrow : ICommand
+    internal class Up : ICommand
     {
         private Cursor cursor;
 
-        public UpArrow(Cursor cursor)
+        public Up(Cursor cursor)
         {
             this.cursor = cursor;
         }

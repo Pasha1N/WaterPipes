@@ -42,20 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command\Command.cs" />
-    <Compile Include="Command\Delete.cs" />
-    <Compile Include="Command\Enter.cs" />
-    <Compile Include="Command\RightArrow.cs" />
-    <Compile Include="Command\LeftArrow.cs" />
-    <Compile Include="Command\S.cs" />
-    <Compile Include="Command\UpArrow.cs" />
-    <Compile Include="Command\DownArrow.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\Remove.cs" />
+    <Compile Include="Command\AddPipe.cs" />
+    <Compile Include="Command\Right.cs" />
+    <Compile Include="Command\Left.cs" />
+    <Compile Include="Command\AddSource.cs" />
+    <Compile Include="Command\Up.cs" />
+    <Compile Include="Command\Down.cs" />
     <Compile Include="Game\Cursor.cs" />
     <Compile Include="Game\PipelineElement.cs" />
     <Compile Include="Game\StartGame.cs" />
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\InstallationOfPipelineComponents.cs" />
-    <Compile Include="Command\Spacebar.cs" />
+    <Compile Include="Command\Start.cs" />
     <Compile Include="Game\MyTypes\Bool.cs" />
     <Compile Include="Game\WaterSource.cs" />
     <Compile Include="Program.cs" />

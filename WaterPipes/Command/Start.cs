@@ -3,11 +3,11 @@ using WaterPipes.Game.MyTypes;
 
 namespace WaterPipes.Command
 {
-    internal class Spacebar : ICommand
+    internal class Start : ICommand
     {
         private Bool @bool;
 
-        public Spacebar(Bool @bool)
+        public Start(Bool @bool)
         {
             this.@bool = @bool;
         }

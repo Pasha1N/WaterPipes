@@ -4,13 +4,13 @@ using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
-    internal class S : ICommand
+    internal class AddSource : ICommand
     {
         private List<WaterSource> sources;
         private List<Trumpet> pipes;
         private Cursor cursor;
 
-        public S(Cursor cursor, IEnumerable<WaterSource> sources, IEnumerable<Trumpet> pipes)
+        public AddSource(Cursor cursor, IEnumerable<WaterSource> sources, IEnumerable<Trumpet> pipes)
         {
             this.cursor = cursor;
             this.sources = (List<WaterSource>)sources;
