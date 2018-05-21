@@ -11,7 +11,6 @@ namespace WaterPipes.Game
         private Cursor cursor = new Cursor(1,1);
         private Field field;
         private List<Trumpet> pipes;
-        private List<PipelineElement> pipelineElement = new List<PipelineElement>();
         private List<WaterSource> sources;
 
         public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, IEnumerable<WaterSource> sources)
@@ -49,6 +48,7 @@ namespace WaterPipes.Game
             while (work.Value)
             {
                 key = Console.ReadKey();
+                List<PipelineElement> pipelineElement = new List<PipelineElement>();
                 pipelineElement.AddRange(pipes);
                 pipelineElement.AddRange(sources);
                 Console.SetCursorPosition(cursor.X, cursor.Y);

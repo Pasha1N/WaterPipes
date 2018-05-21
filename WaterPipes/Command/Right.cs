@@ -18,7 +18,7 @@ namespace WaterPipes.Command
         {
             if (key.Key == ConsoleKey.RightArrow)
             {
-                if (cursor.X < field.Width - 1)
+                if (cursor.X < field.Width)
                 {
                     cursor.X++;
                 }

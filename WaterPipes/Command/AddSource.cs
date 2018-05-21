@@ -13,7 +13,9 @@ namespace WaterPipes.Command
         public AddSource(Cursor cursor, IEnumerable<WaterSource> sources, IEnumerable<Trumpet> pipes)
         {
             this.cursor = cursor;
+           // this.sources = (List<WaterSource>)sources;
             this.sources = (List<WaterSource>)sources;
+
             this.pipes = (List<Trumpet>)pipes;
         }
 
