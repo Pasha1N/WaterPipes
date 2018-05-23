@@ -7,16 +7,16 @@ namespace WaterPipes.Game
 {
     internal class InstallationOfPipelineComponents
     {
-        private List<ICommand> commands = new List<ICommand>();
+        private ICollection<ICommand> commands = new List<ICommand>();
         private Cursor cursor = new Cursor(1,1);
         private Field field;
-        private List<Trumpet> pipes;
-        private List<WaterSource> sources;
+        private IEnumerable<Trumpet> pipes;
+        private IEnumerable<WaterSource> sources;
 
         public InstallationOfPipelineComponents(Field field, IEnumerable<Trumpet> pipes, IEnumerable<WaterSource> sources)
         {
-            this.pipes = (List<Trumpet>)pipes;
-            this.sources = (List<WaterSource>) sources;
+            this.pipes = pipes;
+            this.sources =  sources;
             this.field = field;
         }
 
