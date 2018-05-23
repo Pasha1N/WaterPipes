@@ -1,13 +1,13 @@
 ﻿using System;
-using WaterPipes.Game.MyTypes;
+using WaterPipes.Game;
 
 namespace WaterPipes.Command
 {
     internal class Start : ICommand
     {
-        private Bool @bool;
+        private ManagementOfWork @bool;
 
-        public Start(Bool @bool)
+        public Start(ManagementOfWork @bool)
         {
             this.@bool = @bool;
         }

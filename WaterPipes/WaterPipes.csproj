@@ -56,7 +56,7 @@
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\InstallationOfPipelineComponents.cs" />
     <Compile Include="Command\Start.cs" />
-    <Compile Include="Game\MyTypes\Bool.cs" />
+    <Compile Include="Game\ManagementOfWork.cs" />
     <Compile Include="Game\WaterSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

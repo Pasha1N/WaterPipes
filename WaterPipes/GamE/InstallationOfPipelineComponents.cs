@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using WaterPipes.Command;
-using WaterPipes.Game.MyTypes;
+using WaterPipes.Game;
 
 namespace WaterPipes.Game
 {
@@ -23,7 +23,7 @@ namespace WaterPipes.Game
         public void Establish()
         {
             ConsoleKeyInfo key;
-            Bool work = new Bool();
+            ManagementOfWork work = new ManagementOfWork();
             cursor.Show();
             work.Value = true;
 

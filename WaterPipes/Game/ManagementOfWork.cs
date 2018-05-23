@@ -1,6 +1,6 @@
-﻿namespace WaterPipes.Game.MyTypes
+﻿namespace WaterPipes.Game
 {
-    internal class Bool
+    internal class ManagementOfWork
     {
         private bool @bool;
 
