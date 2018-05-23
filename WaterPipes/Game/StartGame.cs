@@ -5,8 +5,8 @@ namespace WaterPipes.Game
 {
     internal class StartGame
     {
-        private List<Trumpet> pipes = new List<Trumpet>();
-        private List<WaterSource> sources = new List<WaterSource>();
+        private IList<Trumpet> pipes = new List<Trumpet>();
+        private IList<WaterSource> sources = new List<WaterSource>();
 
         public StartGame()
         {
