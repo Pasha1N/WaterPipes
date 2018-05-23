@@ -6,7 +6,7 @@ namespace WaterPipes
     {
         public static void Main()
         {
-           StartGame game = new StartGame();
+            StartGame game = new StartGame();
         }
     }
 }

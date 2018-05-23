@@ -16,6 +16,7 @@ namespace WaterPipes.Game
             installationOfElements.Establish();
             OpenSources();
         }
+
         public void OpenSources()
         {
             int height;
@@ -51,9 +52,10 @@ namespace WaterPipes.Game
                     }
                 }
             }
-            Thread.Sleep(speed);
 
+            Thread.Sleep(speed);
             bool work = true;
+
             while (work)
             {
                 List<Trumpet> fullPipes = new List<Trumpet>();
