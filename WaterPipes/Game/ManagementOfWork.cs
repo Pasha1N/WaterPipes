@@ -2,12 +2,12 @@
 {
     internal class ManagementOfWork
     {
-        private bool @bool;
+        private bool toWork;
 
         public bool Value
         {
-            get { return @bool; }
-            set { @bool = value; }
+            get { return toWork; }
+            set { toWork = value; }
         }
     }
 }

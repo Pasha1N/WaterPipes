@@ -23,31 +23,25 @@ namespace WaterPipes.Game
             int width;
             int speed = 400;
 
-            for (int i = 0; i < sources.Count; i++)
+            foreach (WaterSource source in sources)
             {
-                if (sources[i] != null)
+                width = source.Width;
+                height = source.Height;
+
+                for (int j = -1; j < 2; j += 2)
                 {
-                    width = sources[i].Width;
-                    height = sources[i].Height;
-
-                    for (int j = -1; j < 2; j += 2)
+                    foreach (Trumpet pipe in pipes)
                     {
-                        for (int p = 0; p < pipes.Count; p++)
+                        if (pipe.Height == height + j && pipes[p].Width == width)
                         {
-                            if (pipes[p] != null)
-                            {
-                                if (pipes[p].Height == height + j && pipes[p].Width == width)
-                                {
-                                    pipes[p].Fill();
-                                    pipes[p].Print();
-                                }
+                            pipe.Fill();
+                            pipe.Print();
+                        }
 
-                                if (pipes[p].Width == width + j && pipes[p].Height == height)
-                                {
-                                    pipes[p].Fill();
-                                    pipes[p].Print();
-                                }
-                            }
+                        if (pipe.Width == width + j && pipes[p].Height == height)
+                        {
+                            pipe.Fill();
+                            pipe.Print();
                         }
                     }
                 }
@@ -60,36 +54,30 @@ namespace WaterPipes.Game
             {
                 List<Trumpet> fullPipes = new List<Trumpet>();
 
-                for (int l = 0; l < pipes.Count; l++)
+                foreach (Trumpet pipe in pipes)
                 {
-                    if (pipes[l] != null)
+                    if (!pipe.IsEmpty)
                     {
-                        if (!pipes[l].IsEmpty)
+                        width = pipe.Width;
+                        height = pipe.Height;
+
+                        for (int j = -1; j < 2; j += 2)
                         {
-                            width = pipes[l].Width;
-                            height = pipes[l].Height;
-
-                            for (int j = -1; j < 2; j += 2)
+                            foreach (Trumpet trumpet in pipes)
                             {
-                                for (int p = 0; p < pipes.Count; p++)
+                                if (trumpet.Height == height + j && trumpet.Width == width)
                                 {
-                                    if (pipes[p] != null)
+                                    if (trumpet.IsEmpty)
                                     {
-                                        if (pipes[p].Height == height + j && pipes[p].Width == width)
-                                        {
-                                            if (pipes[p].IsEmpty)
-                                            {
-                                                fullPipes.Add(pipes[p]);
-                                            }
-                                        }
+                                        fullPipes.Add(trumpet);
+                                    }
+                                }
 
-                                        if (pipes[p].Width == width + j && pipes[p].Height == height)
-                                        {
-                                            if (pipes[p].IsEmpty)
-                                            {
-                                                fullPipes.Add(pipes[p]);
-                                            }
-                                        }
+                                if (trumpet.Width == width + j && trumpet.Height == height)
+                                {
+                                    if (trumpet.IsEmpty)
+                                    {
+                                        fullPipes.Add(trumpet);
                                     }
                                 }
                             }
@@ -99,20 +87,14 @@ namespace WaterPipes.Game
 
                 if (fullPipes.Count > 0)
                 {
-                    for (int i = 0; i < fullPipes.Count; i++)
+                    foreach (Trumpet pipe in fullPipes)
                     {
-                        if (fullPipes[i] != null)
+                        foreach (Trumpet trumpet in pipes)
                         {
-                            for (int j = 0; j < pipes.Count; j++)
+                            if (pipe.Width == trumpet.Width && pipe.Height == trumpet.Height)
                             {
-                                if (pipes[j] != null)
-                                {
-                                    if (fullPipes[i].Width == pipes[j].Width && fullPipes[i].Height == pipes[j].Height)
-                                    {
-                                        pipes[j].Fill();
-                                        pipes[j].Print();
-                                    }
-                                }
+                                trumpet.Fill();
+                                trumpet.Print();
                             }
                         }
                     }

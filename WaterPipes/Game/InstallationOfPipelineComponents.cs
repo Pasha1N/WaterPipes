@@ -23,15 +23,15 @@ namespace WaterPipes.Game
         public void Establish()
         {
             ConsoleKeyInfo key;
-            ManagementOfWork work = new ManagementOfWork();
+            ManagementOfWork toWork = new ManagementOfWork();
             cursor.Show();
-            work.Value = true;
+            toWork.Value = true;
 
             Down downArrow = new Down(cursor,field);
             Left leftArrow = new Left(cursor);
             Right rightArrow = new Right(cursor, field);
             Up upArrow = new Up(cursor);
-            Start spacebar = new Start(work);
+            Start spacebar = new Start(toWork);
             Remove delete = new Remove(cursor, sources, pipes);
             AddPipe enter = new AddPipe(cursor, sources, pipes);
             AddSource s = new AddSource(cursor, sources, pipes);
@@ -45,7 +45,7 @@ namespace WaterPipes.Game
             commands.Add(enter);
             commands.Add(s);
 
-            while (work.Value)
+            while (toWork.Value)
             {
                 key = Console.ReadKey();
                 List<PipelineElement> pipelineElement = new List<PipelineElement>();
