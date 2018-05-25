@@ -16,7 +16,7 @@ namespace WaterPipes.Command
         {
             if (key.Key == ConsoleKey.Spacebar)
             {
-                @bool.Value = false;
+                @bool.ToWork = false;
             }
         }
     }

@@ -25,7 +25,7 @@ namespace WaterPipes.Game
             ConsoleKeyInfo key;
             ManagementOfWork toWork = new ManagementOfWork();
             cursor.Show();
-            toWork.Value = true;
+            toWork.ToWork = true;
 
             Down downArrow = new Down(cursor,field);
             Left leftArrow = new Left(cursor);
@@ -45,7 +45,7 @@ namespace WaterPipes.Game
             commands.Add(enter);
             commands.Add(s);
 
-            while (toWork.Value)
+            while (toWork.ToWork)
             {
                 key = Console.ReadKey();
                 List<PipelineElement> pipelineElement = new List<PipelineElement>();

@@ -4,7 +4,7 @@
     {
         private bool toWork;
 
-        public bool Value
+        public bool ToWork
         {
             get { return toWork; }
             set { toWork = value; }

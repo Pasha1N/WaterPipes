@@ -32,13 +32,13 @@ namespace WaterPipes.Game
                 {
                     foreach (Trumpet pipe in pipes)
                     {
-                        if (pipe.Height == height + j && pipes[p].Width == width)
+                        if (pipe.Height == height + j && pipe.Width == width)
                         {
                             pipe.Fill();
                             pipe.Print();
                         }
 
-                        if (pipe.Width == width + j && pipes[p].Height == height)
+                        if (pipe.Width == width + j && pipe.Height == height)
                         {
                             pipe.Fill();
                             pipe.Print();
